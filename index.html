@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cuda</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page__one">
+          <header class="header">
+             <div class="header__body">
+                <div class="header__logo"><img src="img/logo.png" alt="logo"></div>
+                <nav class="header__menu">
+                     <ul class="header__list">
+                        <li><a class="header__item active" href="#">home</a></li>
+                        <li><a class="header__item" href="#">about</a></li>
+                        <li><a class="header__item" href="#">work</a></li>
+                        <li><a class="header__item" href="#">blog</a></li>
+                        <li><a class="header__item" href="#">contact</a></li>
+                     </ul>  
+                </nav>
+             </div>
+          </header>
+          <div class="page">
+             <div class="page__container _container">
+                <h1 class="page__title">Hi there! We are the new kids on the block <br> and we build awesome websites and mobile apps.</h1>
+                <a href="#" class="page__link">WORK WITH US!</a>
+                <div class="link__text"></div>
+             </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="pass__wrapper">
+        <a href="#" class="pass__btn">Сгенерировать пароль</a>
+        <div class="pass__text"></div>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.pass__btn')
+        const text = document.querySelector('.pass__text')
+        btn.addEventListener('click', generate)
+        function generate() {
+            let str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+            let res = []
+            let count = 0
+            for (let i = 0; i < str.length; i++) {
+               let randomSymbol = Math.round(Math.random() * str.length) 
+               count++
+               res.push(str[randomSymbol])
+               if(count === 8) break 
+            }
+            text.innerHTML =  res.join('')
+        }  
+        generate()
+    </script>
+</body>
+</html>
